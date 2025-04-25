@@ -1,25 +1,24 @@
-# 📈 Stock Trend Predictor using Nifty & Sensex
+# 📈 Stock Data Analysis using Nifty & Sensex
 
-A full pipeline to fetch historical stock prices (Nifty & Sensex) from Yahoo Finance, store and clean them in SQL Server, perform feature engineering, train machine learning models (Random Forest & XGBoost), and log predictions back into SQL for analytics and dashboards.
+A streamlined process to fetch historical stock prices (Nifty & Sensex) from Yahoo Finance, store them in a MySQL local server, clean the data using SQL and Python commands, reload the cleaned data, and visualize insights using Streamlit.
 
 ---
 
 ## 🚀 Tech Stack
 
-- Python (Pandas, yFinance, Scikit-learn, XGBoost)
-- SQL Server (via pyodbc + SQLAlchemy)
-- Machine Learning: Random Forest, XGBoost
+- Python (Pandas, yFinance, Streamlit)
+- MySQL (via MySQL Connector/Python)
+- Data Visualization: Streamlit
 
 ---
 
-## 🔁 Pipeline Workflow
+## 🔁 Workflow
 
 1. **Fetch Data**: Nifty & Sensex from Yahoo Finance
-2. **Store in SQL Server**: Table `stock_prices`
-3. **Clean using SQL**: Remove nulls, low volume, fix date
-4. **Feature Engineering**: MA, RSI, Returns
-5. **Train ML Models**: Predict Up/Down Trend
-6. **Store Predictions**: Log into `stock_predictions` table
+2. **Store in MySQL**: Table `stock_prices`
+3. **Clean Data**: Use SQL and Python commands to handle nulls, fix dates, and remove anomalies
+4. **Reload Cleaned Data**: Store cleaned data back into MySQL
+5. **Visualize**: Generate plots and insights using Streamlit
 
 ---
 
@@ -27,8 +26,8 @@ A full pipeline to fetch historical stock prices (Nifty & Sensex) from Yahoo Fin
 
 | Folder | Description |
 |--------|-------------|
-| `src/` | Core Python scripts for each stage of the pipeline |
-| `sql/` | (Optional) SQL scripts for schema management |
+| `src/` | Python scripts for data fetching, cleaning, and visualization |
+| `sql/` | SQL scripts for schema and data cleaning |
 | `data/` | Local CSV backup (optional) |
 
 ---
@@ -36,4 +35,11 @@ A full pipeline to fetch historical stock prices (Nifty & Sensex) from Yahoo Fin
 ## 🛠️ Run Instructions
 
 1. Clone the repo  
-2. Install dependencies:
+2. Install dependencies:  
+    ```bash
+    pip install -r requirements.txt
+    ```
+3. Run the Streamlit app:  
+    ```bash
+    streamlit run src/app.py
+    ```
